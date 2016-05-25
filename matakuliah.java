@@ -1,3 +1,5 @@
+package SIM;
+
 public class matakuliah {
     private String kode_Matakuliah;
     private String nama_Matakuliah;
