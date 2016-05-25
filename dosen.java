@@ -1,3 +1,5 @@
+package SIM;
+
 public class dosen {
     private String kode_Dosen;
     private String nama_Dosen;
