@@ -1,3 +1,5 @@
+package SIM;
+
 public class mahasiswa {
     private String nim;
     private String nama;
