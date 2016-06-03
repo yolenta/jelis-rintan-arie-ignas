@@ -4,12 +4,9 @@
     Author     : cinta kamu
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>AquaBusiness | Style Demo</title>
+        <title>Sistem Informasi Mahasiswa</title>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <link rel="stylesheet" href="../layout/styles/layout.css" type="text/css" />
     </head>
@@ -61,64 +58,113 @@
         <div class="wrapper col4">
             <div id="container">
                 <div id="content">
-                   <FORM METHOD="POST" ACTION="ProsesLogin.jsp">
-                <% if (request.getParameter("error")!=null) {
-                %> Login GAGAL. Silahkan diulangi <BR><HR> <% } %> 
-                <TABLE> 
-                    <TR> 
-                        <TD>User Name</TD>
-                        <TD><INPUT TYPE=TEXT NAME="userName"></TD>
-                    </TR>
-                    <TR> 
-                        <TD>Password</TD>
-                        <TD><INPUT TYPE=PASSWORD NAME="password"></TD> 
-                    </TR>
-                    <TR> 
-                        <TD COLSPAN="2"><INPUT TYPE=SUBMIT VALUE="Login"></TD>
-                    </TR>
-                </table>
-            </form>
+                    <h1>Pengumuman</h1>
+                    <p> PARIWARA HIBAH SUMBER BELAJAR DIGITAL
+                        SEMESTER GENAP 2015/2016</br>
+                        Jumat, 19 Februari 2016</br>
+                        Berdasarkan hasil penilaian para reviewer, kami mengumumkan proposal yang akan didanai untuk diimplementasikan pada semester ini.
+                        Berikut ini kami sampaikan para pemenang hibah Sumber Belajar Digital (SBD) Semester Genap 2015/2016.</p> 
+
                 </div>
                 <div id="column">
                     <div class="subnav">
                         <h1>form Login</h1>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div class="wrapper col5">
-            <div id="footer">
-                <div class="footbox">
-                    <h2>Stay In The Know !</h2>
-                    <p>Please enter your email to join our mailing list</p>
-                    
-                </div>
-                <div class="footbox">
-                    <h2>Further Information !</h2>
-                    <ul>
-                      
-                    </ul>
-                </div>
-                <div class="footbox last">
-                    <h2>Company Details !</h2>
-                    <address>
-                        Universitas Sanata Dharma<br />
-                        123456<br />                        
-                        info@usd.ac.id<br />
-                    </address>
-                    Tel: 5555 476491888 
-                    
-                </div>
-                <br class="clear" />
-            </div>
-        </div>
-        <div class="wrapper col6">
-            <div id="copyright">
-                <p class="fl_left">Copyright &copy; 2016 - All Rights Reserved - <a href="#">ISM.usd.ac.id</a></p>
-                <p class="fl_right">Template by <a target="_blank" href="http://www.usd.ac.id/">Jelis Arie RIntan Ignas</a></p>
-                <br class="clear" />
-            </div>
-        </div>
-    </body>
-</html>
+                        <script type="text/javascript" >
+                            function validate()
+                            {
+                                if (document.frm.nim.value == "")
+                                {
+                                    alert("Tolong Masukkan NIM");
+                                    document.frm.nim.focus();
+                                    return false;
+                                }
+                                if (document.frm.password.value == "")
+                                {
+                                    alert("Tolong Masukkan password");
+                                    document.frm.password.focus();
+                                    return false;
+                                }
+                                return true;
+                            }
+                            function trim(stringToTrim) {
+                                return stringToTrim.replace(/^\s+|\s+$/g, "");
+                            }
+
+                        </script>
+
+                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                            <title>Login</title>
+                            </head>
+                            <body>
+                                <%
+
+                                    String notifikasi = "";
+                                    if (request.getParameter("errmsg") != null && request.getParameter("errmsg") != "") {
+                                        notifikasi = "Kesalahan NIM dan Password";
+                                    } else {
+                                        notifikasi = " ";
+                                    }
+                                %>
+
+
+                                <form name="frm" onSubmit="return validate();" action="checkLogin.jsp" method="post">
+
+                                    <table border="0" width="400px" align="center">
+                                        <tr><td colspan=2 align="center"><%=notifikasi%></td></tr> 
+                                        <thead>
+                                            <tr>
+                                                <th colspan=2 align="center" >NIM</th></tr> </thead>
+                                        <tr><td  colspan=2 align="center"><input type="text" name="nim"></td></tr>
+                                        <thead>
+                                            <tr>
+                                                <th colspan=2 align="center" >PASSWORD</th></tr> </thead>
+                                        <tr><td  colspan=2 align="center"><input type="password" name="password" id="password"></td></tr>
+                                        <tr><td colspan=2 align="center">
+                                                <input type="submit" name="Submit" value="Submit" />
+                                                <input type="reset" name="reset" value="reset" />
+                                            </td></tr>
+                                    </table>
+                                </form>
+
+                                </div>
+                                </div>
+                                <div class="clear">
+
+                                </div>
+                                </div>
+                                </div>
+                                <div class="wrapper col5">
+                                    <div id="footer">
+                                        <div class="footbox">
+                                            <h2>Stay In The Know !</h2>
+                                            <p>Please enter your email to join our mailing list</p>
+
+                                        </div>
+                                        <div class="footbox">
+                                            <h2>Further Information !</h2>
+                                            <ul>
+
+                                            </ul>
+                                        </div>
+                                        <div class="footbox last">
+                                            <h2>Company Details !</h2>
+                                            <address>
+                                                Universitas Sanata Dharma<br />
+                                                123456<br />                        
+                                                info@usd.ac.id<br />
+                                            </address>
+                                            Tel: 5555 476491888 
+
+                                        </div>
+                                        <br class="clear" />
+                                    </div>
+                                </div>
+                                <div class="wrapper col6">
+                                    <div id="copyright">
+                                        <p class="fl_left">Copyright &copy; 2016 - All Rights Reserved - <a href="#">ISM.usd.ac.id</a></p>
+                                        <p class="fl_right">Template by <a target="_blank" href="http://www.usd.ac.id/">Jelis Arie RIntan Ignas</a></p>
+                                        <br class="clear" />
+                                    </div>
+                                </div>
+                            </body>
+                            </html>
